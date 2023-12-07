@@ -1,0 +1,17 @@
+Hi,
+This guide is here to help you launching the tool. You'll see it's very easy.
+For now, the tool only allows to plot the sankey diagram for one country and one year but I will work on that soon.
+
+First step : changing the path to the optiflow and balmorel results file, also the path and the name of the csv options file
+You just need to change those lines at the beginning of the script :
+
+results_path = 'C:/Users/theod/Documents/Documents importants/DTU/Job/Balmorel/Balmorel + Optiflow/20230914 Balmorel model/01 Balmorel model/base/model/'
+results_file_opti = 'Optiflow_MainResults_DK_WP' + '.gdx'
+results_file_bal = 'MainResults_DK_WP' + '.gdx'
+csv_path = 'C:/Users/theod/Documents/Documents importants/DTU/Job/Balmorel/Balmorel + Optiflow/'
+csv_file = 'Sankey_Diagram_Options.csv'
+
+Second step : Go to the end of the document, decide which sector you want to plot by modifying the Options_plot list and decide which country and which year you need, then launch the file :
+
+Options_plot = ['Fuel', 'Elec', 'DH']
+Plotting_oneyear_onecountry(csv_file, 'DENMARK', '2050', Options_plot)
