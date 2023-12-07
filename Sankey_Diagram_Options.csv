@@ -1,0 +1,93 @@
+FLOW_IN_FINAL;FLOW_OUT_FINAL;COLUMN_COND_1;COND_1;COLUMN_COND_2;COND_2;EXACT_1;EXACT_2;TYPE;FILE;DF
+Muniwaste;Thermal Gasification;IPROCFROM;Linkstorage_Res;IPROCTO;TG_MW;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Straw;Thermal Gasification;IPROCFROM;Linkstorage_Res;IPROCTO;TG_ST;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Wood;Thermal Gasification;IPROCFROM;Linkstorage_Res;IPROCTO;TG_WO;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Wood Pellets;Thermal Gasification;IPROCFROM;Linkstorage_Res;IPROCTO;TG_WP;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Straw;BioJet Synthesis;IPROCFROM;Linkstorage_Res;IPROCTO;BioJet_ST;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Wood;BioJet Synthesis;IPROCFROM;Linkstorage_Res;IPROCTO;BioJet_WO;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Wood Pellets;BioJet Synthesis;IPROCFROM;Linkstorage_Res;IPROCTO;BioJet_WP;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Straw;BioJet H2 Synthesis;IPROCFROM;Linkstorage_Res;IPROCTO;BioJet_ST_H2;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Wood;BioJet H2 Synthesis;IPROCFROM;Linkstorage_Res;IPROCTO;BioJet_WO_H2;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Wood Pellets;BioJet H2 Synthesis;IPROCFROM;Linkstorage_Res;IPROCTO;BioJet_WP_H2;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+BioJet Synthesis;BioJet;IPROCFROM;BioJet_ST;IPROCTO;BioJet_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet Synthesis;BioJet;IPROCFROM;BioJet_WO;IPROCTO;BioJet_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet Synthesis;BioJet;IPROCFROM;BioJet_WP;IPROCTO;BioJet_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;BioJet;IPROCFROM;BioJet_ST_H2;IPROCTO;BioJet_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;BioJet;IPROCFROM;BioJet_WO_H2;IPROCTO;BioJet_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;BioJet;IPROCFROM;BioJet_WP_H2;IPROCTO;BioJet_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet;Airfuel;IPROCFROM;BioJet_Eff;IPROCTO;Air_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet Synthesis;BioGasoline;IPROCFROM;BioJet_ST;IPROCTO;BioGasoline_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet Synthesis;BioGasoline;IPROCFROM;BioJet_WO;IPROCTO;BioGasoline_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet Synthesis;BioGasoline;IPROCFROM;BioJet_WP;IPROCTO;BioGasoline_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;BioGasoline;IPROCFROM;BioJet_ST_H2;IPROCTO;BioGasoline_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;BioGasoline;IPROCFROM;BioJet_WO_H2;IPROCTO;BioGasoline_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;BioGasoline;IPROCFROM;BioJet_WP_H2;IPROCTO;BioGasoline_SUM;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioGasoline;Roadfuel;IPROCFROM;BioGasoline_Eff;IPROCTO;Road_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+BioGasoline;Seafuel;IPROCFROM;BioGasoline_Eff;IPROCTO;Sea_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Thermal Gasification;Methane Synthesis;IPROCFROM;Bio_TG_Grid_OUT;IPROCTO;Methane_synthesis_TG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Thermal Gasification;Methanol Synthesis;IPROCFROM;Bio_TG_Grid_OUT;IPROCTO;Methanol_synthesis_TG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;Methane Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;Methane_synthesis_TG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;Methanol Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;Methanol_synthesis_TG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;BioJet H2 Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;BioJet_ST_H2;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;BioJet H2 Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;BioJet_WO_H2;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;BioJet H2 Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;BioJet_WP_H2;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;Ammonia Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;Ammonia_Synthesis;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Hydrogen;EMethanol Synthesis;IPROCFROM;Hydrogen_Use;IPROCTO;EMethanol_synthesis;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Methane Synthesis;Gas;IPROCFROM;Methane_synthesis_TG;IPROCTO;GasBuffer;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+Methanol Synthesis;Methanol;IPROCFROM;Methanol_synthesis_TG;IPROCTO;MethanolTotal_sum;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+Methanol;Roadfuel;IPROCFROM;Methanol_Eff;IPROCTO;Road_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Methanol;Seafuel;IPROCFROM;Methanol_Eff;IPROCTO;Sea_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Methanol;EMethanol Upgrade;IPROCFROM;MethanolTotal;IPROCTO;Methanol_Sum;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+EMethanol Upgrade;Airfuel;IPROCFROM;EME_Jet_Eff;IPROCTO;Air_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Nitrogen Production;Ammonia Synthesis;IPROCFROM;Nitrogen_Production;IPROCTO;Ammonia_Synthesis;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Ammonia Synthesis;Seafuel;IPROCFROM;Ammonia_Eff;IPROCTO;Sea_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+CO2;EMethanol Synthesis;IPROCFROM;CO2_Use;IPROCTO;EMethanol_synthesis;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+EMethanol Synthesis;EMethanol;IPROCFROM;EMethanol_synthesis;IPROCTO;EMethanolTotal;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+EMethanol;EMethanol Upgrade;IPROCFROM;EMethanolTotal;IPROCTO;Emethanol_Upgrade;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+EMethanol Synthesis;Roadfuel;IPROCFROM;EMethanol_Eff;IPROCTO;Road_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+EMethanol Synthesis;Seafuel;IPROCFROM;EMethanol_Eff;IPROCTO;Air_fuels_sum;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Manure;Storage;IPROCFROM;Linkstorage_Res;IPROCTO;Manure_tank;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Straw;Storage;IPROCFROM;Linkstorage_Res;IPROCTO;Straw_pre_BG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Deep Litter;Storage;IPROCFROM;Linkstorage_Res;IPROCTO;Deep_Litter_pre_BG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Food Waste;Storage;IPROCFROM;Linkstorage_Res;IPROCTO;Food_Waste_pre_BG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Nature Aera;Storage;IPROCFROM;Linkstorage_Res;IPROCTO;Nature_Aera_pre_BG;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Storage;Biogas Synthesis;IPROCFROM;BiogasProd_mix;IPROCTO;Biogas_Grid_SUM;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Biogas Synthesis;Biogas;IPROCFROM;Biogas_Grid_SUM;IPROCTO;Biogas_Grid_IN;Yes;Yes;Fuel;OPTI;VFLOW_Opti_C
+Biogas;Biogas Upgrade;IPROCFROM;Biogas_Grid_OUT;IPROCTO;BiogasUpgr_BMETH;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Biogas;Methanisation;IPROCFROM;Biogas_Grid_OUT;IPROCTO;Methanisation_Bio_Biogas;Yes;No;Fuel;OPTI;VFLOW_Opti_C
+Biogas Upgrade;Gas;IPROCFROM;BiogasUpgr_BMETH;IPROCTO;GasBuffer;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+Methanisation;Gas;IPROCFROM;Methanisation_Bio_Biogas;IPROCTO;GasBuffer;No;Yes;Fuel;OPTI;VFLOW_Opti_C
+Electrolysis;Hydrogen;COMMODITY;HYDROGEN;TECH_TYPE;ELECTROLYZER;Yes;Yes;Fuel;BAL;PRO_YCRAGF
+Power grid;EMethanol Synthesis;IPROCFROM;ElecBuffer_GJ;IPROCTO;EMethanol_synthesis;Yes;No;Elec;OPTI;VFLOW_Opti_C
+Power grid;Ammonia Synthesis;IPROCFROM;ElecBuffer_GJ;IPROCTO;Ammonia_Synthesis;Yes;No;Elec;OPTI;VFLOW_Opti_C
+Power grid;Biogas Upgrade;IPROCFROM;ElecBuffer_GJ;IPROCTO;BiogasUpgr_BMETH;Yes;No;Elec;OPTI;VFLOW_Opti_C
+Power grid;Nitrogen Production;IPROCFROM;ElecBuffer_GJ;IPROCTO;Nitrogen_Production;Yes;Yes;Elec;OPTI;VFLOW_Opti_C
+Wind Onshore;Power grid;TECH_TYPE;WIND-ON;;;Yes;;Elec;BAL;PRO_YCRAGF
+Wind Offshore;Power grid;TECH_TYPE;WIND-OFF;;;Yes;;Elec;BAL;PRO_YCRAGF
+Solar ;Power grid;TECH_TYPE;SOLAR-PV;;;Yes;;Elec;BAL;PRO_YCRAGF
+WATER;Power grid;FFF;WATER;COMMODITY;ELECTRICITY;Yes;Yes;Elec;BAL;PRO_YCRAGF
+MSW;Power grid;FFF;MUNIWASTE;COMMODITY;ELECTRICITY;Yes;Yes;Elec;BAL;PRO_YCRAGF
+Woodchips;Power grid;FFF;WOODCHIPS;COMMODITY;ELECTRICITY;Yes;Yes;Elec;BAL;PRO_YCRAGF
+Power grid;P2H;TECH_TYPE;ELECT-TO-HEAT;;;Yes;;Elec;BAL;F_CONS_YCRA
+Power grid;Electrolysis;TECH_TYPE;ELECTROLYZER;;;Yes;;Elec;BAL;F_CONS_YCRA
+Power grid;Electricity Consumption;VARIABLE_CATEGORY;EXOGENOUS;;;Yes;;Elec;BAL;EL_DEMAND_YCR
+MSW;DH grid;FFF;MUNIWASTE;COMMODITY;HEAT;Yes;Yes;DH;BAL;PRO_YCRAGF
+Woodchips;DH grid;FFF;WOODCHIPS;COMMODITY;HEAT;Yes;Yes;DH;BAL;PRO_YCRAGF
+Excess Heat;DH grid;G;GNR_EH_HEAT;;;Yes;;DH;BAL;PRO_YCRAGF
+Biogas Upgrade;DH grid;IPROCFROM;BiogasUpgr_BMETH;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Thermal Gasification;DH grid;IPROCFROM;TG_MW;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Thermal Gasification;DH grid;IPROCFROM;TG_ST;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Thermal Gasification;DH grid;IPROCFROM;TG_WO;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Thermal Gasification;DH grid;IPROCFROM;TG_WP;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+BioJet Synthesis;DH grid;IPROCFROM;BioJet_ST;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+BioJet Synthesis;DH grid;IPROCFROM;BioJet_WO;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+BioJet Synthesis;DH grid;IPROCFROM;BioJet_WP;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;DH grid;IPROCFROM;BioJet_ST_H2;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;DH grid;IPROCFROM;BioJet_WO_H2;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+BioJet H2 Synthesis;DH grid;IPROCFROM;BioJet_WP_H2;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Methanisation;DH grid;IPROCFROM;Methanisation_Bio_Biogas;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Methane Synthesis;DH grid;IPROCFROM;Methane_synthesis_TG;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+Methanol Synthesis;DH grid;IPROCFROM;Methanol_synthesis_TG;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+EMethanol Synthesis;DH grid;IPROCFROM;EMethanol_synthesis;IPROCTO;Heat_Opti_to_Bal_Conv;No;Yes;DH;OPTI;VFLOW_Opti_C
+P2H;DH grid;TECH_TYPE;ELECT-TO-HEAT;;;Yes;;DH;BAL;PRO_YCRAGF
+DH grid;DH Consumption;VARIABLE_CATEGORY;EXOGENOUS;;;Yes;;DH;BAL;H_DEMAND_YCRA
