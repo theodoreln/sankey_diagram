@@ -13,9 +13,13 @@ pio.renderers.default = 'browser'
 
 """ Path to the file """
  
-results_path = 'C:/Users/theod/Documents/Documents importants/DTU/Job/Balmorel/Balmorel + Optiflow/20230914 Balmorel model/01 Balmorel model/base/model/'
-results_file_opti = 'Optiflow_MainResults_DK_WP' + '.gdx'
-results_file_bal = 'MainResults_DK_WP' + '.gdx'
+# results_path = 'C:/Users/theod/Documents/Documents importants/DTU/Job/Balmorel/Balmorel + Optiflow/20230914 Balmorel model/01 Balmorel model/base/model/'
+# results_file_opti = 'Optiflow_MainResults_DK_WP' + '.gdx'
+# results_file_bal = 'MainResults_DK_WP' + '.gdx'
+
+results_path = 'C:/Users/theod/Documents/Documents importants/DTU/Job/Balmorel/Balmorel + Optiflow/20230914 Balmorel model/Old results/No differenciation with WP/'
+results_file_opti = 'Optiflow_MainResults_DK+' + '.gdx'
+results_file_bal = 'MainResults_DK+' + '.gdx'
 csv_path = 'C:/Users/theod/Documents/Documents importants/DTU/Job/Balmorel/Balmorel + Optiflow/'
 csv_file = 'Sankey_Diagram_Options.csv'
 
@@ -105,6 +109,24 @@ def sankey_fnode_delete(label, source, target, value, value_to_delete):
             k = 1
     return label, source, target, value
 
+# Old clean flow
+def sankey_clean_flow(source, target, value) :
+    flow = list(zip(source, target))
+    source2 = []
+    target2 = []
+    value2 = []
+    for i in range(len(flow)) :
+        if value[i] != 0 :
+            flow2 = list(zip(source2, target2))
+            if flow[i] in flow2 :
+                index = flow2.index(flow[i])
+                value2[index] = value2[index] + value[i]
+            else :
+                source2.append(flow[i][0])
+                target2.append(flow[i][1])
+                value2.append(value[i])
+    return(source2, target2, value2)  
+
 """ Creating the lists for the sankey diagram """
 
 # Creating the label list from the csv options file
@@ -149,37 +171,37 @@ def create_flow(label, CSV_df, Country, Year) :
         # Condition 1 
         if CSV_df['EXACT_1'][i] == 'Yes' :
             condition_1 = df[CSV_df['COLUMN_COND_1'][i]] == CSV_df['COND_1'][i]
-            condition_1_out = True
+            condition_1_out = pd.Series(True, index=df.index)
         else :
             condition_1 = df[CSV_df['COLUMN_COND_1'][i]].str.contains(CSV_df['COND_1'][i], case=False)
             list_1 = list(CSV_df['COND_1'])
             var_1 = CSV_df['COND_1'][i]
             exclude_1 = [name for name in list_1 if name != var_1 and name not in var_1]
             if not not exclude_1 :
-                exclude_pattern_1 = '|'.join(map(re.escape, exclude_1))
-                condition_1_out = ~df[CSV_df['COLUMN_COND_1'][i]].str.contains(exclude_pattern_1, case=False, regex=True )
+                exclude_pattern_1 = '|'.join(r'\b{}\b'.format(re.escape(word)) for word in exclude_1)
+                condition_1_out = ~df[CSV_df['COLUMN_COND_1'][i]].str.contains(exclude_pattern_1, case=False, regex=False )
             else :
-                condition_1_out = True
+                condition_1_out = pd.Series(True, index=df.index)
             
         # Condition 2
         if pd.notna(CSV_df['COLUMN_COND_2'][i]):
             if CSV_df['EXACT_2'][i] == 'Yes' :
                 condition_2 = df[CSV_df['COLUMN_COND_2'][i]] == CSV_df['COND_2'][i]
-                condition_2_out = True
+                condition_2_out = pd.Series(True, index=df.index)
             else :
                 condition_2 = df[CSV_df['COLUMN_COND_2'][i]].str.contains(CSV_df['COND_2'][i], case=False)
                 list_2 = list(CSV_df['COND_2'])
                 var_2 = CSV_df['COND_2'][i]
-                exclude_2 = [str(name) for name in list_2 if str(name) != var_2 and str(name) not in var_2]
+                exclude_2 = [str(name) for name in list_2 if str(name) != var_2 and str(name) not in var_2 and not pd.isna(name)]
                 if not not exclude_2 :
-                    exclude_pattern_2 = '|'.join(map(re.escape, exclude_2))
-                    condition_2_out = ~df[CSV_df['COLUMN_COND_2'][i]].str.contains(exclude_pattern_2, case=False, regex=True )
+                    exclude_pattern_2 = '|'.join(r'\b{}\b'.format(re.escape(word)) for word in exclude_2)
+                    condition_2_out = ~df[CSV_df['COLUMN_COND_2'][i]].str.contains(exclude_pattern_2, case=False)
                 else :
-                    condition_2_out = True
+                    condition_2_out = pd.Series(True, index=df.index)
         else :
-            condition_2 = True
-            condition_2_out = True
-        
+            condition_2 = pd.Series(True, index=df.index)
+            condition_2_out = pd.Series(True, index=df.index)
+            
         # Applying all conditions
         val = df.loc[condition_1 & condition_2 & condition_1_out & condition_2_out , 'value']
            
@@ -246,7 +268,7 @@ def plot_sankey(label, source, target, value, flow_color, node_color, Country, Y
 
 def Plotting_oneyear_onecountry(csv_file, Country, Year, Options_plot):
     # Old version
-    V_FLOW_C = Import_gams(files['OPTI'], 'VFLOW_Opti_C', 'CCC', 'DENMARK', 'Y', '2050')
+    V_FLOW_C = Import_gams(files['OPTI'], 'VFLOW_Opti_C', 'CCC', 'NORWAY', 'Y', '2050')
     label, source, target, value = sankey_data(V_FLOW_C)
     label, source, target, value = sankey_fnode_delete(label, source, target, value, 'Money_buffer_T')
     fig = go.Figure(data=[go.Sankey(
@@ -270,17 +292,75 @@ def Plotting_oneyear_onecountry(csv_file, Country, Year, Options_plot):
     source, target, value, flow_color = clean_flow(source, target, value, flow_color) 
     plot_sankey(label, source, target, value, flow_color, node_color, Country, Year)
     
+def Plotting_oneyear_sumcountries(csv_file, Year, Options_plot) : 
+    # Old version
+    results = gt.Container(files['OPTI'])
+    df = results.data['VFLOW_Opti_C'].records
+    df = df[df['Y'] == Year]
+    df.reset_index(drop=True, inplace=True)
+    countries = df['CCC'].unique().tolist()
+    label2, source2, target2, value2 = [], [], [], []
+    for count in countries :
+        V_FLOW_C = Import_gams(files['OPTI'], 'VFLOW_Opti_C', 'CCC', count, 'Y', '2050')
+        label, source, target, value = sankey_data(V_FLOW_C)
+        label, source, target, value = sankey_fnode_delete(label, source, target, value, 'Money_buffer_T')
+        for i in range (len(label)) :
+            label_add = label[i]
+            if label_add not in label2 :
+                label2.append(label_add)
+        for j in range(len(source)) :
+            source_add = source[j]
+            target_add = target[j]
+            value_add = value[j]
+            label_source = label[source_add]
+            label_target = label[target_add]
+            source2.append(label2.index(label_source))
+            target2.append(label2.index(label_target))
+            value2.append(value_add)
+    source2, target2, value2 = sankey_clean_flow(source2, target2, value2)
+    fig = go.Figure(data=[go.Sankey(
+        node = dict(
+          pad = 70,
+          thickness = 10,
+          line = dict(color = "black", width = 0.5),
+          label = label2
+        ),
+        link = dict(
+          source = source2,
+          target = target2, 
+          value = value2
+      ))])
+    fig.update_layout(title_text='All Countries'+' - '+str(Year)+' - Old', font_size=10)
+    fig.show()
+    
+    # New version
+    results = gt.Container(files['OPTI'])
+    df = results.data['VFLOW_Opti_C'].records
+    df = df[df['Y'] == Year]
+    df.reset_index(drop=True, inplace=True)
+    countries = df['CCC'].unique().tolist()
+    source2, target2, value2, flow_color2 = [], [], [], []
+    CSV_df = Import_csv(csv_path, csv_file, Options_plot)
+    label = create_label(CSV_df)
+    for count in countries :
+        source, target, value, flow_color, node_color = create_flow(label, CSV_df, count, Year)
+        source, target, value, flow_color = clean_flow(source, target, value, flow_color) 
+        for j in range(len(source)) :
+            source_add = source[j]
+            target_add = target[j]
+            value_add = value[j]
+            flow_color_add = flow_color[j]
+            source2.append(source_add)
+            target2.append(target_add)
+            value2.append(value_add)
+            flow_color2.append(flow_color_add)
+    source2, target2, value2, flow_color2 = clean_flow(source2, target2, value2, flow_color2)
+    plot_sankey(label, source2, target2, value2, flow_color2, node_color, 'All Countries', Year)
+
 
 Options_plot = ['Fuel', 'Elec', 'DH']
-Plotting_oneyear_onecountry(csv_file, 'DENMARK', '2050', Options_plot)
-    
+Plotting_oneyear_onecountry(csv_file, 'NORWAY', '2050', Options_plot)
+Plotting_oneyear_sumcountries(csv_file, '2050', Options_plot)
 
-    
-    
-    
-    
-    
-    
-    
-    
+
     
